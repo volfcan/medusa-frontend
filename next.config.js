@@ -29,6 +29,10 @@ const nextConfig = withStoreConfig({
         protocol: "https",
         hostname: "medusa-tutorial-bucket.nyc3.digitaloceanspaces.com",
       },
+      {
+        protocol: "https",
+        hostname: "fra1.digitaloceanspaces.com",
+      },
     ],
   },
 })
