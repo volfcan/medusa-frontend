@@ -31,7 +31,7 @@ const nextConfig = withStoreConfig({
       },
       {
         protocol: "https",
-        hostname: "fra1.digitaloceanspaces.com",
+        hostname: "bakgeliyor.fra1.digitaloceanspaces.com",
       },
     ],
   },
