@@ -1,6 +1,12 @@
 import { Region } from "@medusajs/medusa"
 import { notFound } from "next/navigation"
 import { NextRequest, NextResponse } from "next/server"
+import createMiddleware from "next-intl/middleware"
+
+export default createMiddleware({
+  locales: ["en", "tr"],
+  defaultLocale: "en",
+})
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
@@ -138,5 +144,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|favicon.ico).*)", "/"],
+  matcher: ["/((?!api|_next/static|favicon.ico).*)", "/", "/(de|en)/:path*"],
 }
