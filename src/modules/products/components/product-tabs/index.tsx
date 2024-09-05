@@ -14,10 +14,10 @@ type ProductTabsProps = {
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
-    {
-      label: "Ürün Bilgisi",
-      component: <ProductInfoTab product={product} />,
-    },
+    // {
+    //   label: "Ürün Bilgisi",
+    //   component: <ProductInfoTab product={product} />,
+    // },
     {
       label: "Kargo ve İade",
       component: <ShippingInfoTab />,
@@ -91,33 +91,24 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
-            <span className="font-semibold">Fast delivery</span>
+            <span className="font-semibold">Hızlı teslimat</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              Ürününüz 3-5 iş günü içerisinde teslim adresinize veya evinize
+              ulaşacaktır.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Refresh />
           <div>
-            <span className="font-semibold">Simple exchanges</span>
+            <span className="font-semibold">Geri iade</span>
             <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
+              Ürününüzü istediğiniz zaman geri iade etme şansı!
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Back />
-          <div>
-            <span className="font-semibold">Easy returns</span>
-            <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
-            </p>
-          </div>
         </div>
       </div>
     </div>
