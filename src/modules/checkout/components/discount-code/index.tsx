@@ -140,7 +140,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 className="txt-medium text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
                 data-testid="add-discount-button"
               >
-                Add gift card or discount code
+                Hediye kartı veya indirim kuponu tanımla
               </button>
               <Tooltip content="You can add multiple gift cards, but only one discount code.">
                 <InformationCircleSolid color="var(--fg-muted)" />

@@ -1,6 +1,10 @@
 import { Text, clx } from "@medusajs/ui"
+import Image from "next/image"
 
 import { getCategoriesList, getCollectionsList } from "@lib/data"
+import iyzico from "../../../../../public/iyzico.png"
+import visa from "../../../../../public/visa.svg"
+import mastercard from "../../../../../public/mastercard.png"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import MedusaCTA from "@modules/layout/components/medusa-cta"
@@ -107,6 +111,17 @@ export default async function Footer() {
               </div>
             )}
           </div>
+        </div>
+
+        <div className="flex space-x-8 py-4">
+          <Image alt="iyzico logo" src={iyzico} width={200} height={100} />
+          <Image alt="visa logo" src={visa} width={60} height={60} />
+          <Image
+            alt="mastercard logo"
+            src={mastercard}
+            width={60}
+            height={80}
+          />
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-small">

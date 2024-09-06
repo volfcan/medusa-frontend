@@ -41,7 +41,7 @@ const AccountNav = ({
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+              Merhaba {customer?.first_name}
             </div>
             <div className="text-base-regular">
               <ul>
@@ -171,10 +171,15 @@ type AccountNavLinkProps = {
   href: string
   route: string
   children: React.ReactNode
-  'data-testid'?: string
+  "data-testid"?: string
 }
 
-const AccountNavLink = ({ href, route, children, 'data-testid': dataTestId }: AccountNavLinkProps) => {
+const AccountNavLink = ({
+  href,
+  route,
+  children,
+  "data-testid": dataTestId,
+}: AccountNavLinkProps) => {
   const { countryCode }: { countryCode: string } = useParams()
 
   const active = route.split(countryCode)[1] === href
