@@ -52,7 +52,7 @@ export default async function Nav() {
               fallback={
                 <LocalizedClientLink
                   className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
+                  href="/sepet"
                   data-testid="nav-cart-link"
                 >
                   Sepet (0)
