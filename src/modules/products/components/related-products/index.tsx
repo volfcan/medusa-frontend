@@ -58,16 +58,17 @@ export default async function RelatedProducts({
 
   if (!productPreviews.length) {
     return null
-  }
+ }
+
 
   return (
     <div className="product-page-constraint">
       <div className="flex flex-col items-center text-center mb-16">
         <span className="text-base-regular text-gray-600 mb-6">
-          Related products
+   		İlgili diğer ürünler
         </span>
         <p className="text-2xl-regular text-ui-fg-base max-w-lg">
-          You might also want to check out these products.
+          Ayrıca bu ürünlere de göz atmak isteyebilirsiniz.
         </p>
       </div>
 
