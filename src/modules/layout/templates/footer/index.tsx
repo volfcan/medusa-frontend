@@ -107,6 +107,12 @@ export default async function Footer() {
                       </LocalizedClientLink>
                     </li>
                   ))}
+                  <LocalizedClientLink href="/teslimat">
+                    Teslimat ve İade Şartları
+                  </LocalizedClientLink>
+                  <LocalizedClientLink href="/gizlilik">
+                    Gizlilik Sözleşmesi
+                  </LocalizedClientLink>
                 </ul>
               </div>
             )}
