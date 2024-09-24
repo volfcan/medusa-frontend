@@ -34,6 +34,10 @@ const nextConfig = withStoreConfig({
         protocol: "https",
         hostname: "bakgeliyor.fra1.digitaloceanspaces.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+      },
     ],
   },
 })

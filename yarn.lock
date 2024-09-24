@@ -5375,10 +5375,10 @@ medusa-core-utils@^1.2.0:
   resolved "https://registry.npmjs.org/medusa-core-utils/-/medusa-core-utils-1.2.0.tgz"
   integrity sha512-9mzXGkMsll92C46Ub8A9vwjcfFiHfdkgshwmPP9QpRrm02M6N+SQb45S2A9t0dKjyT9J7rgCCSrFhYQg3pvqbw==
 
-medusa-interfaces@^1.3.7:
-  version "1.3.9"
-  resolved "https://registry.npmjs.org/medusa-interfaces/-/medusa-interfaces-1.3.9.tgz"
-  integrity sha512-5cTYPvnL96djEdQjO5Mp4ECLJH6FTL1NWQf6kdxbda3S66JkbliNydQ03KorKEPKxT6Fsr74su494rm077EiFw==
+medusa-interfaces@^1.3.10, medusa-interfaces@^1.3.7:
+  version "1.3.10"
+  resolved "https://registry.npmjs.org/medusa-interfaces/-/medusa-interfaces-1.3.10.tgz"
+  integrity sha512-S3J8+W/Wy5zoJML7P5mxGd9gRJTdMaRdpiPAhMeod8MmZGcTKpLRB1Ms8d2+pNDPhmoHJ69SAKaWRxp1w7eCUg==
 
 medusa-react@^9.0.0:
   version "9.0.5"
