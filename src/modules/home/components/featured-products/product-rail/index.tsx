@@ -31,7 +31,6 @@ export default function ProductRail({
           <InteractiveLink href={`/collections/${collection.handle}`}>
             Hepsini Gör
           </InteractiveLink>
-          S
         </div>
         <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
           {products &&
@@ -45,7 +44,6 @@ export default function ProductRail({
               </li>
             ))}
         </ul>
-        S
       </div>
     </div>
   )
