@@ -1,6 +1,6 @@
 import { Cart, PaymentSession } from "@medusajs/medusa"
 import { useCart } from "medusa-react"
-import { useCheckout } from "@lib/context/checkout-context"
+// import { useCheckout } from "@lib/context/checkout-context"
 import { Button } from "@medusajs/ui"
 import { OnApproveActions, OnApproveData } from "@paypal/paypal-js"
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
