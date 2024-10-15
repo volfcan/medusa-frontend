@@ -1,5 +1,5 @@
 import { PaymentProcessor } from "@medusajs/medusa"
-import { PayTRPaymentGateway } from "./paytr-payment-gateway"
+// import { PayTRPaymentGateway } from "./paytr-payment-gateway"
 
 class PayTRPaymentProcessor extends PaymentProcessor {
   private paytrPaymentGateway: PayTRPaymentGateway
