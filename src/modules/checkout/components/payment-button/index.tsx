@@ -11,11 +11,14 @@ import ErrorMessage from "../error-message"
 import Spinner from "@modules/common/icons/spinner"
 
 type PaymentButtonProps = {
-  paymentSession?: PaymentSession | null
+  cart: Omit<Cart, "refundable_amount" | "refunded_total">
+  "data-testid": string
 }
 
-const PaymentButton: React.FC<PaymentButtonProps> = ({ paymentSession }) => {
-  const { cart } = useCart()
+const PaymentButton: React.FC<PaymentButtonProps> = ({
+  cart,
+  "data-testid": dataTestId,
+}) => {
   const notReady =
     !cart ||
     !cart.shipping_address ||
@@ -25,51 +28,72 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({ paymentSession }) => {
       ? true
       : false
 
-  switch (paymentSession?.provider_id) {
-    case "paytr":
-      return <PaytrPaymentButton PaymentSession notReady />
+  const paidByGiftcard =
+    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
 
+  if (paidByGiftcard) {
+    return <GiftCardPaymentButton />
+  }
+
+  const paymentSession = cart.payment_session as PaymentSession
+
+  switch (paymentSession.provider_id) {
+    case "stripe":
+      return (
+        <StripePaymentButton
+          notReady={notReady}
+          cart={cart}
+          data-testid={dataTestId}
+        />
+      )
+    case "manual":
+      return (
+        <ManualTestPaymentButton notReady={notReady} data-testid={dataTestId} />
+      )
+    case "paypal":
+      return (
+        <PayPalPaymentButton
+          notReady={notReady}
+          cart={cart}
+          data-testid={dataTestId}
+        />
+      )
     default:
       return <Button disabled>Select a payment method</Button>
   }
 }
 
-type PaytrPaymentButtonProps = {
-  session: PaymentSession
-  notReady: boolean
-}
+// const PaytrPaymentButton: React.FC<PaytrPaymentButtonProps> = ({
+//   session,
+//   notReady,
+// }: {
+//   sessions: PaymentSession
+//   notReady: boolean
+// }) => {
+//   const { cart } = useCart()
+//   const { onPaymentCompleted } = useCheckout()
 
-const PaytrPaymentButton: React.FC<PaytrPaymentButtonProps> = ({
-  session,
-  notReady,
-}: {
-  sessions: PaymentSession
-  notReady: boolean
-}) => {
-  const { cart } = useCart()
-  const { onPaymentCompleted } = useCheckout()
+//   // If the cart is not ready, we don't want to render the button
+//   if (notReady || !cart?.total) return null
 
-  // If the cart is not ready, we don't want to render the button
-  if (notReady || !cart?.total) return null
+//   const txRef = session.data.paystackTxRef as string | undefined
+//   if (!txRef) {
+//     throw new Error("Paystack transaction not initialized")
+//   }
+//   const handlePayClick = async () => {
+//     const response = await fetch("/store/payments/paytr/create-session", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         "x-publishable-api-key": "pk_01J5X580TZF2X4CEPK6D0M24QV",
+//       },
+//       body: JSON.stringify({}),
+//     })
+//     const { redirect_url } = await response.json()
+//   }
 
-  const txRef = session.data.paystackTxRef as string | undefined
-  if (!txRef) {
-    throw new Error("Paystack transaction not initialized")
-  }
-  const handlePayClick = async () => {
-    const response = await fetch("/store/payments/paytr/create-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-publishable-api-key": "pk_01J5X580TZF2X4CEPK6D0M24QV",
-      },
-      body: JSON.stringify({}),
-    })
-    const { redirect_url } = await response.json()
-  }
-
-  return <button onClick={handlePayClick}>Pay with PayTR</button>
-}
+//   return <button onClick={handlePayClick}>Pay with PayTR</button>
+// }
 
 // const GiftCardPaymentButton = () => {
 //   const [submitting, setSubmitting] = useState(false)
