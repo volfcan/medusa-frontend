@@ -95,24 +95,24 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
 //   return <button onClick={handlePayClick}>Pay with PayTR</button>
 // }
 
-// const GiftCardPaymentButton = () => {
-//   const [submitting, setSubmitting] = useState(false)
+const GiftCardPaymentButton = () => {
+  const [submitting, setSubmitting] = useState(false)
 
-//   const handleOrder = async () => {
-//     setSubmitting(true)
-//     await placeOrder()
-//   }
+  const handleOrder = async () => {
+    setSubmitting(true)
+    await placeOrder()
+  }
 
-//   return (
-//     <Button
-//       onClick={handleOrder}
-//       isLoading={submitting}
-//       data-testid="submit-order-button"
-//     >
-//       Place order
-//     </Button>
-//   )
-// }
+  return (
+    <Button
+      onClick={handleOrder}
+      isLoading={submitting}
+      data-testid="submit-order-button"
+    >
+      Place order
+    </Button>
+  )
+}
 
 const StripePaymentButton = ({
   cart,
